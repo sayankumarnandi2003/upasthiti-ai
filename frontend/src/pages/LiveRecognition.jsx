@@ -21,7 +21,7 @@ export default function LiveRecognition() {
             const formData = new FormData();
             formData.append('file', blob, 'frame.jpg');
 
-            const response = await axios.post('http://localhost:8000/recognition/verify', formData, {
+            const response = await axios.post('https://upasthiti-ai.onrender.com/recognition/verify', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

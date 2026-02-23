@@ -28,3 +28,5 @@ app.include_router(subjects.router)
 app.include_router(recognition.router)
 app.include_router(auth.router)
 app.include_router(ocr.router)
+
+# trigger reload

@@ -40,10 +40,12 @@ Upasthiti AI is a modern, web-based automated attendance system designed for edu
     ```
 4.  Configure Environment Variables:
     *   Create a `.env` file in the `backend/` directory.
-    *   Add your Gemini API Key. **(Crucial: The `.env` file is git-ignored and should never be committed to the repository to keep your key secure).**
+    *   Add your Gemini API Key and an optional Cloud Database URL (e.g., PostgreSQL from Neon.tech). **(Crucial: The `.env` file is git-ignored and should never be committed to the repository to keep your keys secure).**
     ```env
     GEMINI_API_KEY=your_gemini_api_key_here
+    DATABASE_URL=postgresql://user:password@hostname/dbname
     ```
+    *If `DATABASE_URL` is omitted, the app will default to a local SQLite database (`upasthiti.db`).*
 5.  Run the FastAPI server:
     ```bash
     uvicorn main:app --reload

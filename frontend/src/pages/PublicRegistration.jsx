@@ -26,7 +26,7 @@ export default function PublicRegistration() {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/students/', newStudent);
+            const response = await axios.post('https://upasthiti-ai.onrender.com/students/', newStudent);
             setCreatedStudent(response.data);
             setStep(2);
         } catch (error) {
@@ -50,7 +50,7 @@ export default function PublicRegistration() {
             const formData = new FormData();
             formData.append('file', blob, 'form.jpg');
 
-            const response = await axios.post('http://localhost:8000/ocr/scan-form', formData, {
+            const response = await axios.post('https://upasthiti-ai.onrender.com/ocr/scan-form', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 
@@ -83,7 +83,7 @@ export default function PublicRegistration() {
             const formData = new FormData();
             formData.append('file', blob, 'face.jpg');
 
-            await axios.post(`http://localhost:8000/recognition/register/${createdStudent.id}`, formData, {
+            await axios.post(`https://upasthiti-ai.onrender.com/recognition/register/${createdStudent.id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

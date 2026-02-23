@@ -27,7 +27,7 @@ export default function Students() {
 
     const fetchStudents = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/students/');
+            const response = await axios.get('https://upasthiti-ai.onrender.com/students/');
             setStudents(response.data);
         } catch (error) {
             console.error("Error fetching students:", error);
@@ -37,7 +37,7 @@ export default function Students() {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:8000/students/', newStudent);
+            await axios.post('https://upasthiti-ai.onrender.com/students/', newStudent);
             setShowModal(false);
             setNewStudent({ student_id: '', first_name: '', last_name: '', email: '', course_name: '' });
             fetchStudents();
@@ -61,7 +61,7 @@ export default function Students() {
             const formData = new FormData();
             formData.append('file', blob, 'face.jpg');
 
-            await axios.post(`http://localhost:8000/recognition/register/${selectedStudent.id}`, formData, {
+            await axios.post(`https://upasthiti-ai.onrender.com/recognition/register/${selectedStudent.id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
