@@ -1,77 +1,208 @@
-# Upasthiti AI - Automated Attendance System
+🚀 Upasthiti AI — Autonomous Attendance & Recognition Station
 
-Upasthiti AI is a modern, web-based automated attendance system designed for educational institutions. It features dual interfaces: a public-facing portal for student enrollment and live biometric scanning, and a secure administrator dashboard for managing records.
+Upasthiti AI is a full-stack, AI-powered automated attendance system designed to modernize how educational institutions handle student presence tracking. The system combines computer vision, facial recognition concepts, and cloud-native architecture to deliver a seamless, touch-free attendance experience.
 
-## Key Features
+This project was developed as a final-year engineering prototype with a focus on real-time recognition, distributed deployment, and scalable system design.
 
-*   **Public Enrollment Portal:** A user-friendly, multi-step registration form for new students.
-*   **AI Auto-Fill:** Powered by Google's Gemini Vision API, allowing students to hold up handwritten details to the webcam to instantly auto-fill the enrollment form.
-*   **Live Recognition Station:** An autonomous camera interface that detect faces to log attendance seamlessly.
-*   **Secure Admin Dashboard:** A protected console (default credentials: `admin` / `admin123`) to view attendance logs and manage the student catalog.
-*   **Biometric Registration:** Captures and securely stores facial embeddings for future recognition.
+🌟 Overview
 
-## Tech Stack
+Traditional attendance systems are slow, manual, and prone to proxy errors. Upasthiti AI reimagines this workflow using computer vision and AI-assisted enrollment.
 
-*   **Frontend:** React, Vite, Tailwind CSS, Lucide React, React-Router-DOM, React-Webcam
-*   **Backend:** FastAPI, Uvicorn, SQLAlchemy, OpenCV (Haar Cascades for face detection), Google GenAI SDK
-*   **Database:** SQLite
+The platform provides:
 
-## Setup Instructions
+✅ Contactless attendance via camera recognition
+✅ AI-assisted student enrollment
+✅ Cloud-distributed backend architecture
+✅ Administrator control panel
+✅ Biometric registration using facial embeddings
 
-### Prerequisites
-*   Node.js (v18+)
-*   Python (3.9+)
+🏗️ System Architecture
 
-### 1. Backend Setup
+Upasthiti AI follows a decoupled cloud architecture, enabling scalability and independent deployment.
 
-1.  Navigate into the backend directory:
-    ```bash
-    cd backend
-    ```
-2.  Create and activate a virtual environment:
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use: .\venv\Scripts\activate
-    ```
-3.  Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    pip install python-dotenv google-genai
-    ```
-4.  Configure Environment Variables:
-    *   Create a `.env` file in the `backend/` directory.
-    *   Add your Gemini API Key and an optional Cloud Database URL (e.g., PostgreSQL from Neon.tech). **(Crucial: The `.env` file is git-ignored and should never be committed to the repository to keep your keys secure).**
-    ```env
-    GEMINI_API_KEY=your_gemini_api_key_here
-    DATABASE_URL=postgresql://user:password@hostname/dbname
-    ```
-    *If `DATABASE_URL` is omitted, the app will default to a local SQLite database (`upasthiti.db`).*
-5.  Run the FastAPI server:
-    ```bash
-    uvicorn main:app --reload
-    ```
-    The API will be available at `http://localhost:8000`.
+Frontend: React + Vite (Vercel)
 
-### 2. Frontend Setup
+Backend: FastAPI (Render)
 
-1.  Navigate into the frontend directory:
-    ```bash
-    cd frontend
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-3.  Start the Vite development server:
-    ```bash
-    npm run dev
-    ```
-    The application will be available at `http://localhost:5173`.
+Database: PostgreSQL (Supabase)
 
-## Application Structure
+Vision Engine: OpenCV
 
-*   `Public Mode (`/attendance`, `/register`)`: Open to everyone for live scanning and enrollment.
-*   `Admin Mode (`/admin`, `/admin/students`)`: Protected routes for authorized personnel.
+AI / OCR Layer: Google Gemini Vision API
 
----
-*made with love by SAYAN*
+This separation ensures:
+
+✔ High availability
+✔ Easy scaling of compute-heavy components
+✔ Clean API boundaries
+✔ Improved performance
+
+✨ Core Features
+🎓 Student Enrollment Portal
+
+Multi-step registration workflow
+
+Clean UI optimized for usability
+
+Biometric capture during registration
+
+🤖 AI Auto-Fill (Gemini Vision)
+
+Students can display handwritten details to the webcam, allowing the system to extract structured data automatically using vision-based AI.
+
+📸 Live Recognition Station
+
+Autonomous camera interface
+
+Face detection & matching pipeline
+
+Instant attendance logging
+
+🧬 Biometric Registration
+
+Facial embeddings generated at enrollment
+
+Stored securely for future recognition
+
+Designed for extensible ML/DL upgrades
+
+🛡️ Admin Dashboard
+
+Secure management console for:
+
+Viewing attendance logs
+
+Managing student database
+
+Monitoring recognition events
+🛠️ Technology Stack
+Frontend
+
+React
+
+Vite
+
+Tailwind CSS
+
+React Router DOM
+
+React Webcam
+
+Lucide React Icons
+
+Backend
+
+FastAPI
+
+Uvicorn
+
+SQLAlchemy
+
+OpenCV (Face Detection)
+
+Google GenAI SDK
+
+Database
+
+PostgreSQL (Supabase)
+
+SQLite fallback for local development
+
+Languages
+
+Python 3.11
+
+JavaScript (ES6+)
+
+🚀 Live Deployment
+
+🌐 Web Application:
+https://upasthiti-ai-nine.vercel.app
+
+📦 GitHub Repository:
+https://github.com/sayankumarnandi2003/upasthiti-ai
+
+⚙️ Local Development Setup
+✅ Prerequisites
+
+Node.js (v18+)
+
+Python (3.9+)
+
+1️⃣ Backend Setup
+cd backend
+
+python -m venv venv
+source venv/bin/activate        # Windows: .\venv\Scripts\activate
+
+pip install -r requirements.txt
+pip install python-dotenv google-genai
+
+Create .env file inside backend/:
+
+GEMINI_API_KEY=your_api_key_here
+DATABASE_URL=postgresql://user:password@host/dbname
+
+If DATABASE_URL is omitted → SQLite will be used.
+
+Run server:
+
+uvicorn main:app --reload
+
+Backend → http://localhost:8000
+
+2️⃣ Frontend Setup
+cd frontend
+npm install
+npm run dev
+
+Frontend → http://localhost:5173
+
+🔐 Security Notes
+
+This repository represents a working prototype.
+
+For production usage:
+
+✔ Implement authentication & authorization
+✔ Encrypt biometric data
+✔ Harden API endpoints
+✔ Use secure secrets management
+✔ Rotate credentials
+
+🧠 Future Improvements
+
+Upasthiti AI is currently a functional prototype. Planned upgrades include:
+
+✅ Deep Learning-based face recognition
+✅ Robust embedding models (FaceNet / ArcFace-style)
+✅ Anti-spoofing & liveness detection
+✅ Improved recognition accuracy
+✅ Advanced analytics dashboard
+✅ Institution-scale deployment features
+
+🎯 Project Goals
+
+This project was built to explore:
+
+Applied Computer Vision
+
+Real-time system design
+
+Cloud deployment workflows
+
+Cross-origin communication (CORS)
+
+Database-driven AI applications
+
+Full-stack AI integration
+
+
+
+👨‍💻 Author
+
+Sayan Kumar Nandi
+Final-Year Computer Science & Engineering (AI & ML)
+Dr. A. P. J. Abdul Kalam Technical University, Lucknow
+
+Built with curiosity, persistence, and a passion for intelligent systems.
